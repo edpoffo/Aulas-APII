@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(Animator))]
 public class PlayerAnimacaoBC : MonoBehaviour
 {
+    private AudioSource _audioSource;
     private Rigidbody2D _rb2D;
     private Animator _animator;
 
@@ -16,6 +17,7 @@ public class PlayerAnimacaoBC : MonoBehaviour
     {
         _rb2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -50,5 +52,10 @@ public class PlayerAnimacaoBC : MonoBehaviour
         if(_rb2D.velocity.x < -0.05f) transform.localScale = new Vector3(-1f, 1f, 1f);
         
         _animator.SetFloat("VelocidadeX", Mathf.Abs(_rb2D.velocity.x));
+    }
+
+    public void TocarSom()
+    {
+        _audioSource.Play();
     }
 }
