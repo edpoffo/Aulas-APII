@@ -22,12 +22,14 @@ public class RandomSound : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E)) PlayRandomSound();
-        if(Input.GetKeyDown(KeyCode.A)) willRandomPitch = !willRandomPitch;
+        //if(Input.GetKeyDown(KeyCode.E)) PlayRandomSound();
+        //if(Input.GetKeyDown(KeyCode.A)) willRandomPitch = !willRandomPitch;
     }
 
     public void PlayRandomSound()
     {
+        Debug.Log("Chamou da animação");
+        
         var randomIndex = Random.Range(0,sons.Count);
         
         _audioSource.clip = sons[randomIndex];
